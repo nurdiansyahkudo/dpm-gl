@@ -5,11 +5,11 @@
     "author": "PT Lintang Utama Infotek",
     "license": "LGPL-3",
     "depends": ["account_reports"],
-    "assets": {
-        "web.assets_backend": [
-            "dpm_gl/static/src/js/general_ledger_search_cache.js",
-        ],
-    },
+    # "assets": {
+    #     "web.assets_backend": [
+    #         "dpm_gl/static/src/js/general_ledger_search_cache.js",
+    #     ],
+    # },
     "installable": True,
     "application": False,
 }
