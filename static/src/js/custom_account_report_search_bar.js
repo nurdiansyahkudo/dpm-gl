@@ -45,7 +45,10 @@ patch(AccountReportSearchBar.prototype, {
 // Patch AccountReport to provide initialQuery to the search bar
 patch(AccountReport.prototype, {
     setup() {
-        this._super(...arguments);
+        // panggil original setup manual (jika perlu)
+        const superSetup = this.constructor.__super__.setup;
+        if (superSetup) superSetup.call(this);
+
         this.initialQuery = this.options?.filter_search_bar || "";
     },
 });
