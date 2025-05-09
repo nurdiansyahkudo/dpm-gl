@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <template id="custom_account_report_inherit" inherit_id="account_reports.AccountReport">
+    <xpath expr="//AccountReportSearchBar" position="attributes">
+      <attribute name="initialQuery"><t t-esc="initialQuery"/></attribute>
+    </xpath>
+  </template>
+</odoo>

@@ -10,6 +10,9 @@
             "dpm_gl/static/src/js/custom_account_report_search_bar.js",
         ],
     },
+    'data': [
+        'views/account_report_template.xml',
+    ],
     "installable": True,
     "application": False,
 }

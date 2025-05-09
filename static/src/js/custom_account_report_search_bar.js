@@ -1,9 +1,11 @@
 /** @odoo-module **/
 
 import { AccountReportSearchBar } from "@account_reports/components/account_report/search_bar/search_bar";
+import { AccountReport } from "@account_reports/components/account_report/account_report";
 import { patch } from "@web/core/utils/patch";
 import { onMounted, useRef, useState } from "@odoo/owl";
 
+// Patch SearchBar logic
 patch(AccountReportSearchBar.prototype, {
     setup() {
         this._super(...arguments);
@@ -11,9 +13,8 @@ patch(AccountReportSearchBar.prototype, {
         this.controller = useState(this.env.controller);
 
         onMounted(() => {
-            const lastQuery = this.controller.options?.filter_search_bar;
-            if (lastQuery) {
-                this.searchText.el.value = lastQuery;
+            if (this.props.initialQuery) {
+                this.searchText.el.value = this.props.initialQuery;
                 this.search();
             }
         });
@@ -38,5 +39,13 @@ patch(AccountReportSearchBar.prototype, {
             delete this.controller.lines_searched;
             this.controller.deleteOption("filter_search_bar");
         }
+    },
+});
+
+// Patch AccountReport to provide initialQuery to the search bar
+patch(AccountReport.prototype, {
+    setup() {
+        this._super(...arguments);
+        this.initialQuery = this.options?.filter_search_bar || "";
     },
 });
