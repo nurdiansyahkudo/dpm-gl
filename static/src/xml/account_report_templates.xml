@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<templates id="template" xml:space="preserve">
-  <t t-extend="account_reports.AccountReportSearchBar">
-    <t t-jquery="t" t-operation="replace">
-      <t t-component="dpm_gl.AccountReportSearchBarCustom"/>
-    </t>
-  </t>
-</templates>
+<odoo>
+    <template id="account_report_searchbar_override" inherit_id="account_reports.AccountReportSearchBar" priority="100">
+        <xpath expr="." position="replace">
+            <t t-name="account_reports.AccountReportSearchBar" owl="1">
+                <t t-component="my_module.AccountReportSearchBarCustom"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>
