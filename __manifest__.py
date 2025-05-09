@@ -5,14 +5,12 @@
     "author": "PT Lintang Utama Infotek",
     "license": "LGPL-3",
     "depends": ["account_reports"],
-    "assets": {
-        "web.assets_backend": [
-            "dpm_gl/static/src/js/custom_account_report_search_bar.js",
+    'assets': {
+        'web.assets_backend': [
+            'dpm_gl/static/src/js/account_report_search_bar.js',
+            'dpm_gl/static/src/xml/account_report_templates.xml',
         ],
     },
-    'data': [
-        'views/account_report_template.xml',
-    ],
     "installable": True,
     "application": False,
 }
